@@ -48,7 +48,7 @@ root.right.left.right = Node('R')
 root.right.left.right.right = Node('L')
 root.right.right = Node('I')
 root.right.right.left = Node('U')
-root.right.right.left.left = Node('-')  # Maybe used as filler or separator
+root.right.right.left.left = Node('-')
 root.right.right.left.right = Node('F')
 root.right.right.right = Node('S')
 root.right.right.right.left = Node('V')
@@ -96,21 +96,19 @@ def code_to_word(text):
 def word_to_code(text):
     morse_code = ""
     for c in text:
-        morse_code += words[c] + " "  # Add Morse code for each character with space
+        morse_code += words[c] + " " 
 
     print(f"the code is: { morse_code.strip()}")
 
     play_sound = input("Would you like to play the sound?(Enter Yes or No): ").lower()
 
     if play_sound == "yes":
-        play_morse_code(morse_code.strip())  # Play the sound for the generated code
+        play_morse_code(morse_code.strip())
 
 # Get input from the user and determine if it's Morse code or plain text
 text = input('Enter Morse code or text : ').upper()
 
 if "-" in text or "." in text:
-    # If input contains dots or dashes, treat it as Morse
     code_to_word(text)
 else:
-    # Otherwise, treat it as plain text to encode
     word_to_code(text)
